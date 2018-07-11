@@ -23,3 +23,14 @@ Login: /api/user/login (post)
 Untuk inisiasi awal, buat database kemudian jalankan perintah berikut melalui terminal/cmd:
 
 php artisan migrate --seed
+
+# Update add Post Feature
+```
+$router->group(['prefix'=>'post'],function() use($router){
+  $router->get('/','PostController@all');
+  $router->post('/','PostController@add');
+  $router->get('{id}','PostController@show');
+  $router->put('{id}','PostController@update');
+  $router->delete('{id}','PostController@delete');
+});
+```

@@ -14,6 +14,10 @@ class UserModel extends Model
 
   public $timestamps = false;
 
+  public function posts()
+  {
+    return $this->hasMany('App\Models\PostModel','user_id');
+  }
 
   public function rules($id=null){
     if ($id) {

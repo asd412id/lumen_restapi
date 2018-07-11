@@ -31,6 +31,15 @@ class UserController extends Controller
     }
     return $this->responseSuccess($data);
   }
+  public function post($id)
+  {
+    $data = $this->user->find($id);
+    if (!count($data)) {
+      return $this->responseError("Data dengan id {$id} tidak ditemukan");
+    }
+    $data->posts;
+    return $this->responseSuccess($data);
+  }
 
   public function add(Request $request)
   {

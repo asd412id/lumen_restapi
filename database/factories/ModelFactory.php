@@ -19,3 +19,13 @@ $factory->define(App\Models\UserModel::class, function (Faker\Generator $faker) 
     'address' => $faker->address
   ];
 });
+$factory->define(App\Models\PostModel::class, function (Faker\Generator $faker) {
+  $title = $faker->sentence(7);
+  return [
+    'user_id' => rand(1,3),
+    'title' => $title,
+    'content' => $faker->sentence(300),
+    'slug' => str_slug($title,'-'),
+    'status' => 1
+  ];
+});
